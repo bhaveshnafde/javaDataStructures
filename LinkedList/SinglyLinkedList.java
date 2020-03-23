@@ -1,12 +1,19 @@
 import java.util.*;
 class MySinglyLinkedList<E>{
 
-  MyNode<E> head;
+  private MyNode<E> head;
+  private int length;
 
-  void add(E data){
+  public MySinglyLinkedList(){
+    head = null;
+    length = 0;
+  }
+
+  public void add(E data){
     MyNode<E> toAdd = new MyNode<E>(data);
     if(isEmpty()){
       head = toAdd;
+      length++;
       return;
     }
     MyNode<E> temp = head;
@@ -14,9 +21,10 @@ class MySinglyLinkedList<E>{
       temp = temp.next;
     }
     temp.next = toAdd;
+    length++;
   }
 
-  void print(){
+  public void print(){
     MyNode<E> temp = head;
     if(isEmpty()){
       System.out.println("List is Empty!");
@@ -28,7 +36,7 @@ class MySinglyLinkedList<E>{
     }
   }
 
-  E get(int index){
+  public E get(int index){
     if(isEmpty()){
       System.out.println("List is Empty!");
       return null;
@@ -44,7 +52,7 @@ class MySinglyLinkedList<E>{
     return temp.data;
   }
 
-  void put(int index, E value){
+  public void put(int index, E value){
     if(isEmpty()){
       System.out.println("List is Empty!");
       return ;
@@ -60,32 +68,24 @@ class MySinglyLinkedList<E>{
     temp.data = value;
   }
 
-  int size(){
-    if(isEmpty()){
-      return 0;
-    }
-    MyNode<E> temp = head;
-    int size = 0;
-    while(temp != null){
-      size++;
-      temp = temp.next;
-    }
-    return size;
+  public int size(){
+    return length;
   }
 
-  boolean isEmpty(){
+  public boolean isEmpty(){
     return head == null;
   }
 
-  void clear(){
+  public void clear(){
     if(isEmpty()){
       System.out.println("List is Empty!");
       return;
     }
     head = null;
+    length = 0;
   }
 
-  void remove(int index){
+  public void remove(int index){
     if(isEmpty()){
       System.out.println("List is Empty!");
       return;
@@ -97,30 +97,32 @@ class MySinglyLinkedList<E>{
     MyNode<E> toRemove;
     if(index == 0){
       head = head.next;
+      length--;
       return;
     }
     while(index-->0){
       if(index == 0){
         toRemove = temp.next;
         temp.next = toRemove.next;
+        length--;
         return;
       }else{
         temp = temp.next;
       }
     }
-
+    length--;
   }
 
-  static class MyNode<E>{
-    E data;
-    MyNode<E> next;
-    MyNode(E data){
+  private class MyNode<E>{
+    private E data;
+    private MyNode<E> next;
+    public MyNode(E data){
       this.data = data;
     }
   }
 }
 
-public class GenericSinglyLinkedList{
+public class SinglyLinkedList{
   public static void main(String bhavesh[]){
     Scanner sc = new Scanner(System.in);
     MySinglyLinkedList<Integer> msll = new MySinglyLinkedList<>();
