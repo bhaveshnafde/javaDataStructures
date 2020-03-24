@@ -5,8 +5,8 @@ class MySinglyLinkedList<E>{
   private int length;
 
   public MySinglyLinkedList(){
-    head = null;
-    length = 0;
+    this.head = null;
+    this.length = 0;
   }
 
   public void add(E data){
@@ -118,6 +118,7 @@ class MySinglyLinkedList<E>{
     private MyNode<E> next;
     public MyNode(E data){
       this.data = data;
+      this.next = null;
     }
   }
 }

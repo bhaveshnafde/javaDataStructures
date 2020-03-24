@@ -128,6 +128,29 @@ class GenericDoublyLinkedList<E>{
     length--;
   }
 
+  public void reverse(){
+    Node<E> hold = null;
+    Node<E> temp = head;
+    Node<E> newHead = head;
+
+    while(temp != null){
+
+
+
+        while(temp != null){
+          hold = temp.prev;
+          temp.prev = temp.next;
+          temp.next = hold;
+          newHead = temp;
+          temp = temp.prev;
+        }
+
+        head = newHead;
+
+    }
+
+  }
+
   private class Node<E>{
     private E data;
     private Node<E> next;
@@ -145,18 +168,20 @@ public class DoublyLinkedList{
     dll.insertFront(1);
     dll.insertBack(4);
     dll.insertBack(5);
-    dll.removeFromBack();
     dll.printFromFront();
     dll.removeFromFront();
     dll.printFromBack();
     dll.removeFromPos(1);
     dll.printFromFront();
     System.out.println("\n"+dll.size());
+    dll.reverse();
+    dll.printFromFront();
   }
 }
 /*
-null<=>1<=>2<=>3<=>4<=>null
-null<=>4<=>3<=>2<=>null
-null<=>2<=>4<=>null
-2
+null<=>1<=>2<=>3<=>4<=>5<=>null
+null<=>5<=>4<=>3<=>2<=>null
+null<=>2<=>4<=>5<=>null
+3
+null<=>5<=>4<=>2<=>null
 */
