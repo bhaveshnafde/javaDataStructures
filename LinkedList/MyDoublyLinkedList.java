@@ -1,4 +1,4 @@
-public class MyDoublyLinkedList<E>{
+public class DoublyLinkedList<E>{
 
   private Node<E> head;
   private Node<E> tail;
