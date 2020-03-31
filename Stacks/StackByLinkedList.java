@@ -7,10 +7,8 @@ public class StackByLinkedList<E>{
     this.max_size = max_size;
   }
 
-  public void push(E data) throws Exception{
-    if(length >= max_size){
-      throw new Exception("Over FLow");
-    }
+  public boolean push(E data){
+    if(length >= max_size)  return false;
     Node<E> to_push = new Node<E>(data);
     if(head == null)  head = to_push;
     else{
@@ -21,12 +19,11 @@ public class StackByLinkedList<E>{
       temp.next = to_push;
     }
     length++;
+    return true;
   }
 
-  public E pop() throws Exception{
-    if(length <= 0){
-      throw new Exception("Under Flow");
-    }
+  public E pop(){
+    if(length <= 0)   return null;
     E to_return;
     if(head.next == null){
       to_return = head.data;
@@ -69,19 +66,17 @@ public class StackByLinkedList<E>{
       this.data = data;
     }
   }
-  public static void main(String bhavesh[]) throws Exception{
+  public static void main(String bhavesh[]){
     StackByLinkedList<Integer> st = new StackByLinkedList<Integer>(5);
     st.push(1);
-    st.push(2);
-    st.push(3);
-    st.push(4);
-    st.push(5);
-    st.print();
-    st.push(5);
-    st.print();
-    System.out.println("\n"+st.pop());
 
     st.print();
-    System.out.println("\n"+st.peek());
+    System.out.println(st.push(5));
+    st.print();
+    System.out.println(st.pop());
+    System.out.println(st.pop());
+    System.out.println(st.pop());
+    st.print();
+    System.out.println(st.peek());
   }
 }
