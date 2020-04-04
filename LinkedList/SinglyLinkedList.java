@@ -2,7 +2,7 @@ public class SinglyLinkedList<E>{
   private Node<E> head;
   private int length;
 
-  public MySinglyLinkedList(){
+  public SinglyLinkedList(){
     this.head = null;
     this.length = 0;
   }
