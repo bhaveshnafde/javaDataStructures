@@ -35,6 +35,20 @@ public class Queue<E>{
     }System.out.println(temp.data);
   }
 
+  public E front(){
+    if(front == null){
+      return null;
+    }
+    return front.data;
+  }
+
+  public E rear(){
+    if(rear == null){
+      return null;
+    }
+    return rear.data;
+  }
+
   private class Node<E>{
     Node<E> next;
     E data;
@@ -49,11 +63,10 @@ public class Queue<E>{
     que.enqueue(1);
     que.enqueue(2);
     que.enqueue(3);
+    que.enqueue(4);
     que.print();
-    System.out.println(que.dequeue());
-    System.out.println(que.dequeue());
-    System.out.println(que.dequeue());
-    System.out.println(que.dequeue());
+    System.out.println(que.front());
+    System.out.println(que.rear());
 
   }
 }
