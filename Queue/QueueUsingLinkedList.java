@@ -1,4 +1,4 @@
-public class Queue<E>{
+public class QueueUsingLinkedList<E>{
   private Node<E> front,rear;
   private int length;
 
@@ -59,7 +59,7 @@ public class Queue<E>{
   }
 
   public static void main(String bhavesh[]){
-    Queue<Integer> que = new Queue<Integer>();
+    QueueUsingLinkedList<Integer> que = new QueueUsingLinkedList<Integer>();
     que.enqueue(1);
     que.enqueue(2);
     que.enqueue(3);
